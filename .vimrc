@@ -61,12 +61,19 @@ set background=dark
 
 let mapleader = " "
 
+if executable('rg')
+    let g:rg_derive_root='true'
+endif
+
 nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>ps :Rg<SPACE>
+
+nnoremap <silent> <Leader>+ :vertical resize +5<CR>
+nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 "Greates remap ever
 vnoremap <leader>p "_dP
@@ -77,4 +84,11 @@ vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 nnoremap <leader>d "_d
 
+"nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <leader>pv :Sex!<CR>
+inoremap <C-c> <esc>
 
+"fzf keybindings"
+"nmap ; :CtrlPBuffer<CR>
+"nmap <Leader>t :CtrlP<CR>
+"nmap <Leader>r :Tags<CR>
